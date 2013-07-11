@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+//= require bootstrap-datepicker
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR
+
+$('[data-behaviour~=datepicker]').datepicker({
+    format: "dd/mm/yyyy",
+    language: "pt-BR",
+    todayHighlight: true
+});
+
