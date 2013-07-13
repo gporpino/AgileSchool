@@ -1,4 +1,12 @@
 AgileSchool::Application.routes.draw do
+
+  root :to => 'students#index'
+
+  resources :sponsors
+
+  get 'sponsors/autocomplete'
+
+
   resources :grades
 
 
@@ -9,6 +17,9 @@ AgileSchool::Application.routes.draw do
 
 
   resources :students
+
+  
+  
 
 
   # The priority is based upon order of creation:

@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+
   # GET /students
   # GET /students.json
   def index
@@ -35,12 +36,22 @@ class StudentsController < ApplicationController
   # GET /students/1/edit
   def edit
     @student = Student.find(params[:id])
+    
+    
+
+    
   end
 
   # POST /students
   # POST /students.json
   def create
     @student = Student.new(params[:student])
+
+    params[:sponsors].each do |id|
+      if !id.empty? 
+        @student.student_sponsors.build(:sponsor_id => id)
+      end
+    end
 
     respond_to do |format|
       if @student.save
@@ -56,8 +67,18 @@ class StudentsController < ApplicationController
   # PUT /students/1
   # PUT /students/1.json
   def update
+
     @student = Student.find(params[:id])
 
+    @student.student_sponsors.destroy_all
+
+    params[:sponsors].each do |id|
+      if !id.empty? 
+        @student.student_sponsors.build(:sponsor_id => id)
+        
+      end
+    end
+    
     respond_to do |format|
       if @student.update_attributes(params[:student])
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }

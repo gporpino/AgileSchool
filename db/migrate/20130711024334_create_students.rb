@@ -1,9 +1,9 @@
 class CreateStudents < ActiveRecord::Migration
   def change
     create_table :students do |t|
-      t.string :name
+      t.string :name, :null => false
       t.date :born_date
-      t.integer :sexo
+      t.enum :gender
 
       t.timestamps
     end

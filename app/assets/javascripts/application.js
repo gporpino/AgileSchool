@@ -11,6 +11,10 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.ui.all
+//= require ajax-chosen-jquery
+
+
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .

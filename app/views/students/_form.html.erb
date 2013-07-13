@@ -15,9 +15,23 @@
 <div class="control-group">
 	<%= f.label :sexo, :class => 'control-label' %>
 	<div class="controls">
-		<%= f.number_field :sexo, :class => 'number_field' %>
+		<%= f.enum_select :gender, :class => 'number_field' %>
 	</div>
 </div>
+
+<div class="control-group">
+	<%= f.label :sponsors, :class => 'control-label' %>
+	<div class="controls">
+
+		<%= select_tag :sponsors, options_for_select( Sponsor.all.map { |s| [s.name, s.id] }, 
+				@student.sponsors.map  { |j| j.id } ), 
+				include_blank: true, :multiple => true, :style => 'width:90%;height:5%;display:none;', :class => 'chosen'
+		%>
+
+	</div>
+</div>
+
+
 
 <div class="form-actions">
 	<%= f.submit nil, :class => 'btn btn-primary' %>

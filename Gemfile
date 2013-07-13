@@ -7,7 +7,7 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :production, :staging do
+group :production do
   gem "pg"
 end
 
@@ -30,6 +30,11 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "jquery-ui-rails"
+
+gem 'chosen-rails'
+gem 'ajax-chosen-rails'
+
 
 gem "heroku"
 gem 'certified'
@@ -40,6 +45,8 @@ gem 'bootstrap-datetimepicker-rails'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
+
+gem "enumerated_attribute"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -54,4 +61,4 @@ gem "twitter-bootstrap-rails"
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
