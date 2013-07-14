@@ -4,12 +4,20 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
   <dd><%= @student.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:born_date) %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(:data_de_nascimento) %>:</strong></dt>
   <dd><%= @student.born_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:sexo) %>:</strong></dt>
-  <dd><%= @student.sexo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:gênero) %>:</strong></dt>
+  <dd><%= @student.gender.to_s.titleize %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:responsáveis) %>:</strong></dt>
+  <dd>
+    <% @student.sponsors.each do |sponsor| %>
+      <span><%= sponsor.name %></span></br>
+    <% end %>  
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:responsável_financeiro) %>:</strong></dt>
+  <dd><%= @student.financial_sponsor.name %></dd>
 </dl>
 
 <div class="form-actions">

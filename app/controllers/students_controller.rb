@@ -53,6 +53,8 @@ class StudentsController < ApplicationController
       end
     end
 
+    @student.financial_sponsor = Sponsor.find(params[:financial_sponsor_id])
+
     respond_to do |format|
       if @student.save
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
@@ -78,6 +80,8 @@ class StudentsController < ApplicationController
         
       end
     end
+
+    @student.financial_sponsor = Sponsor.find(params[:financial_sponsor_id])
     
     respond_to do |format|
       if @student.update_attributes(params[:student])

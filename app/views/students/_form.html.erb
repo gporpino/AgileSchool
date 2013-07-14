@@ -13,21 +13,35 @@
 	</div>
 </div>
 <div class="control-group">
-	<%= f.label :sexo, :class => 'control-label' %>
+	<%= f.label 'Gênero', :class => 'control-label' %>
 	<div class="controls">
-		<%= f.enum_select :gender, :class => 'number_field' %>
+		<%= f.enum_select :gender, :class => 'chosen_field' %>
 	</div>
 </div>
 
 <div class="control-group">
-	<%= f.label :sponsors, :class => 'control-label' %>
+	<%= f.label 'Responsáveis', :class => 'control-label' %>
 	<div class="controls">
 
 		<%= select_tag :sponsors, options_for_select( Sponsor.all.map { |s| [s.name, s.id] }, 
 				@student.sponsors.map  { |j| j.id } ), 
-				include_blank: true, :multiple => true, :style => 'width:90%;height:5%;display:none;', :class => 'chosen'
+				include_blank: true, :multiple => true, :style => 'width:90%;height:5%;display:none;', 
+				:class => 'chosen_field'
 		%>
+ 
+		<a href="/sponsors/modal.html" role="button" class="btn" data-toggle="modal" data-target="#new-sponsor">Adicionar</a>
+	</div>
+</div>		
+<div class="control-group">
+	<%= f.label 'Responsável Financeiro', :class => 'control-label' %>
+	<div class="controls">
 
+
+		<%= select_tag :financial_sponsor_id, 
+			options_for_select( 
+				@student.sponsors.map { |s| [s.name, s.id] }, 
+				[@student.financial_sponsor.nil? ? '' : '#@student.financial_sponsor.id'])
+		%>
 	</div>
 </div>
 
@@ -39,3 +53,5 @@
 	students_path, :class => 'btn' %>
 </div>
 <% end %>
+
+<div id="new-sponsor" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

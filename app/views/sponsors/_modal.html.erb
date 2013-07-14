@@ -1,0 +1,22 @@
+<%= form_for @sponsor, :html => { :class => 'form-modal' } do |f| %>
+  
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Novo Responsável</h3>
+    </div>
+    <div class="modal-body">
+        <div class="control-group">
+          <%= f.label :name, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :name, :class => 'text_field' %>
+          </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+      
+      <%= f.button nil, :class => 'btn btn-primary submit-modal' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  sponsors_path, :class => 'btn', 'data-dismiss' => "modal", 'aria-hidden' => "true" %>
+    </div>
+  
+<% end %>

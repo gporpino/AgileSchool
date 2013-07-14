@@ -2,10 +2,9 @@ AgileSchool::Application.routes.draw do
 
   root :to => 'students#index'
 
+  get 'sponsors/modal'
+
   resources :sponsors
-
-  get 'sponsors/autocomplete'
-
 
   resources :grades
 
